@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { notFoundError, errorHandler } from './middlewares/error-handler.js';
 import trajetSecuriseRoutes from './routes/tarjetSecuriseRoute.js'
+import  alertRoutes from './routes/alertRoutes.js';
 const app = express() 
 const hostname = '127.0.0.1'; 
 const port=process.env.PORT || 9090 
@@ -27,6 +28,7 @@ app.use(express.urlencoded({extended:true}));
 
 
 app.use('/trajetSecurise', trajetSecuriseRoutes);
+app.use('/alert', alertRoutes);
 
 app.use(notFoundError);
 app.use (errorHandler);
