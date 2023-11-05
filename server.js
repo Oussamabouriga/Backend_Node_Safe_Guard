@@ -6,6 +6,7 @@ import { notFoundError, errorHandler } from './middlewares/error-handler.js';
 import trajetSecuriseRoutes from './routes/tarjetSecuriseRoute.js'
 import  alertRoutes from './routes/alertRoutes.js';
 import  catastropheRoutes from './routes/catastopheRoutes.js'
+import usgsRoutes from './routes/usgs_api.js'
 const app = express() 
 const hostname = '127.0.0.1'; 
 const port=process.env.PORT || 9090 
@@ -31,6 +32,7 @@ app.use(express.urlencoded({extended:true}));
 app.use('/trajetSecurise', trajetSecuriseRoutes);
 app.use('/alert', alertRoutes);
 app.use('/catastrophe', catastropheRoutes);
+app.use('/api', usgsRoutes);
 
 app.use(notFoundError);
 app.use (errorHandler);
