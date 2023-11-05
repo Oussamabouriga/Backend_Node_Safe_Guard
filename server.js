@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import morgan from 'morgan';
 import cors from 'cors';
+import programme from "./routes/programme.js"
 import { notFoundError, errorHandler } from './middlewares/error-handler.js';
 import trajetSecuriseRoutes from './routes/tarjetSecuriseRoute.js'
 const app = express() 
@@ -27,6 +28,7 @@ app.use(express.urlencoded({extended:true}));
 
 
 app.use('/trajetSecurise', trajetSecuriseRoutes);
+app.use("/programme", programme);
 
 app.use(notFoundError);
 app.use (errorHandler);
